@@ -2,12 +2,11 @@
 
 namespace Shield\Stripe;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Shield\Shield\Contracts\Service;
-use Stripe\Error\SignatureVerification;
 use Stripe\Webhook;
-use UnexpectedValueException;
 
 /**
  * Class Service
@@ -25,7 +24,7 @@ class Stripe implements Service
                 $config->get('secret'),
                 $config->get('tolerance', Webhook::DEFAULT_TOLERANCE)
             );
-        } catch (UnexpectedValueException | SignatureVerification $exception) {
+        } catch (Exception $exception) {
             return false;
         }
 
