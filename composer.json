@@ -11,7 +11,7 @@
     ],
     "require": {
         "laravel-shield/shield": "^1.0",
-        "stripe/stripe-php": "^5.3"
+        "stripe/stripe-php": "^5.3|^6.0"
     },
     "require-dev": {
         "laravel-shield/testing": "^1.0"
